@@ -2,13 +2,6 @@
   <div class="echarts" />
 </template>
 
-<style>
-.echarts {
-  width: 600px;
-  height: 400px;
-}
-</style>
-
 <script>
 import echarts from 'echarts/lib/echarts'
 import debounce from 'lodash/debounce'
@@ -115,8 +108,6 @@ export default {
       }
 
       chart.setOption(options || this.manualOptions || this.options || {}, true)
-
-      console.log(this.$attrs)
 
       function isFunction (fn) {
         return Object.prototype.toString.call(fn) === '[object Function]'
@@ -283,3 +274,10 @@ export default {
   graphic: echarts.graphic
 }
 </script>
+
+<style>
+.echarts {
+  width: 600px;
+  height: 400px;
+}
+</style>

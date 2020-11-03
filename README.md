@@ -4,23 +4,14 @@
 
 > [🇨🇳 中文版](./README.zh_CN.md)
 
-Built upon [Apache ECharts (incubating)](https://echarts.apache.org) `v4.1.0`+ and depends on [Vue.js](https://vuejs.org/) `v2.2.6`+.
+Built upon [Apache ECharts (incubating)](https://echarts.apache.org) `v4.1.0`+ and depends on [Vue.js](https://v3.vuejs.org/) `v3.0.0`+.
 
 ## Installation
 
 ### npm (Recommended)
 
 ```bash
-$ npm install echarts vue-echarts
-```
-
-### CDN
-
-Include `echarts` and `vue-echarts` in your HTML file like this:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/echarts@4.1.0/dist/echarts.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue-echarts@4.0.2"></script>
+$ npm install echarts wsj.vue3-echarts
 ```
 
 ## Usage
@@ -28,8 +19,8 @@ Include `echarts` and `vue-echarts` in your HTML file like this:
 ### ES Modules with npm & Vue Loader (Recommended)
 
 ```js
-import Vue from 'vue'
-import ECharts from 'vue-echarts' // refers to components/ECharts.vue in webpack
+import { createApp } from 'vue'
+import ECharts from 'wsj.vue3-echarts' // refers to components/ECharts.vue in webpack
 
 // import ECharts modules manually to reduce bundle size
 import 'echarts/lib/chart/bar'
@@ -41,7 +32,7 @@ import 'echarts/lib/component/tooltip'
 import 'echarts-gl'
 
 // register component to use
-Vue.component('v-chart', ECharts)
+createApp().component('v-chart', ECharts)
 ```
 
 #### ⚠️ Heads up
