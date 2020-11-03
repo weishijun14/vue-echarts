@@ -1,9 +1,12 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
+import { store } from './store'
 import Demo from './Demo.vue'
 
-Vue.config.productionTip = false
+// Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
-  render: h => h(Demo)
-}).$mount('#app')
+const app = createApp(Demo)
+
+app.use(store)
+
+app.mount('#app')

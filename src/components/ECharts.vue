@@ -116,13 +116,20 @@ export default {
 
       chart.setOption(options || this.manualOptions || this.options || {}, true)
 
-      Object.keys(this.$listeners).forEach(event => {
-        const handler = this.$listeners[event]
+      console.log(this.$attrs)
 
-        if (event.indexOf('zr:') === 0) {
-          chart.getZr().on(event.slice(3), handler)
-        } else {
-          chart.on(event, handler)
+      function isFunction (fn) {
+        return Object.prototype.toString.call(fn) === '[object Function]'
+      }
+
+      Object.keys(this.$attrs).forEach(event => {
+        const handler = this.$attrs[event]
+        if (isFunction(handler)) {
+          if (event.indexOf('zr:') === 0) {
+            chart.getZr().on(event.slice(3), handler)
+          } else {
+            chart.on(event, handler)
+          }
         }
       })
 
@@ -250,7 +257,7 @@ export default {
       this.chart && this.chart.resize()
     }
   },
-  destroyed () {
+  unmounted () {
     if (this.chart) {
       this.destroy()
     }

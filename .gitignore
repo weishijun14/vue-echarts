@@ -35,3 +35,5 @@ node_modules
 # Others
 .DS_Store
 .vscode
+package-lock.json
+demo/
